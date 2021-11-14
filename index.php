@@ -17,7 +17,7 @@ Online
     <h1></h1>
 
     <div class="navbar">                  <!-- Barre de navigation + contenue  -->
-        <a href="Index.php">Accueil</a>
+        <a href="index.php">Accueil</a>
         <a href="FAQ.php">FAQ</a>
         <a href="Store.php">Boutique</a>
         <a href="Event.php">Futurs événements</a>
