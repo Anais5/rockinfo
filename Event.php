@@ -21,7 +21,4 @@
             </div>
         </div>
     </div>
-</body>
-
-
-
+<?php require('footer.php');
