@@ -6,7 +6,7 @@ Online
     <title>RockInfo - Accueil</title>   <!-- Titre onglet  -->
 </html>
 <head>
-    <link rel="stylesheet" href="style.css"> <!-- Liens vers fiche de style  -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- Liens vers fiche de style  -->
 </head>
 <body>
 
