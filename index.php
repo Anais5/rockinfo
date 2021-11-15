@@ -1,9 +1,10 @@
-<?php require('header.php')?>
-    <h1></h1>
+<?php require('php/header.php');
 
-    <h2 class="module">Rock Info</h2>
+require 'php/navigation.php';
 
-    <h1></h1>
+if(isset($_GET['i']) && !empty($_GET['i']))
+    require 'php/navigation/' . $_GET['i'] . '.php';
+else
+    require 'html/accueil.html';
 
-    <?php require('navigation.php');
-require('footer.php');
+require 'html/footer.html';
