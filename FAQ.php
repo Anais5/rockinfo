@@ -1,9 +1,7 @@
-Online
-
 <!DOCTYPE html>
 <html lang="fr">
     <meta charset = "UTF-8">
-    <title>RockInfo - Accueil</title>   <!-- Titre onglet  -->
+    <title>RockInfo - FAQ</title>   <!-- Titre onglet  -->
 </html>
 <head>
     <link rel="stylesheet" href="style.css"> <!-- Liens vers fiche de style  -->
@@ -33,7 +31,6 @@ Online
         </div>
     </div>
 </body>
-
 
 
 
