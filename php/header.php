@@ -8,3 +8,5 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- Liens vers fiche de style  -->
 </head>
 <body>
+    <h2 class="module">Rock Info</h2>
+
