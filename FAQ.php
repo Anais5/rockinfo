@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <meta charset = "UTF-8">
-    <title>RockInfo - FAQ</title>   <!-- Titre onglet  -->
-</html>
-<head>
-    <link rel="stylesheet" href="style.css"> <!-- Liens vers fiche de style  -->
-</head>
-<body>
-
+<?php require('header.php')?>
     <h1></h1>
 
     <h2 class="module">Rock Info</h2>
