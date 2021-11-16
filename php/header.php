@@ -1,3 +1,4 @@
+<?php require 'php/init_db.php'?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,4 +10,3 @@
 </head>
 <body>
     <h2 class="module">Rock Info</h2>
-
