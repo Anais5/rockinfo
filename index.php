@@ -1,4 +1,4 @@
-<?php require('php/header.php');
+<?php require 'php/header.php';
 
 require 'php/navigation.php';
 
