@@ -2,18 +2,18 @@
 if(isset($_SESSION['email']))
 {
     echo '<a href="php/logout.php">Déconnexion</p>';
-}else if(isset($_POST['email'], $_POST['password']))
+}else if(isset($_POST['conn_email'], $_POST['conn_password']))
 {
-    if(!empty($_POST['email']) && !empty($_POST['password']))
-    {		
+    if(!empty($_POST['conn_email']) && !empty($_POST['conn_password']))
+    {
 		$reponse = $bdd->prepare("SELECT motDePasse FROM users WHERE email = ?"); // va chercher le hash de l'utilisateur
-		$reponse->execute(array($_POST['email']));
+		$reponse->execute(array($_POST['conn_email']));
 		$mdp = $reponse->fetch();
 
 		if(isset($mdp[0])){ // vérifie que l'utilisateur existe
-			if(password_verify($_POST['password'], $mdp[0]))
+			if(password_verify($_POST['conn_password'], $mdp[0]))
 			{
-				$_SESSION['email'] = $_POST['email'];
+				$_SESSION['email'] = $_POST['conn_email'];
 
 				echo '<a href="php/logout.php">Déconnexion</p>';
 			}else
@@ -25,16 +25,23 @@ if(isset($_SESSION['email']))
 {
     if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['age']) && !empty($_POST['sexe']) && !empty($_POST['pays']) && !empty($_POST['email']))
     {
-        $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription) VALUE (?, ?, ?, ?, ?, ?, ?, NOW())');
-        $req->execute(array($_POST['nom'],
-                            $_POST['prenom'],
-                            $_POST['age'],
-                            $_POST['sexe'],
-                            $_POST['pays'],
-                            $_POST['email'],
-                            password_hash($_POST['password'], PASSWORD_ARGON2ID))
-        );
-        echo '<p>Inscription réussi, veuillez vous connecter.</p>';
+        $reponse = $bdd->prepare("SELECT email FROM users WHERE email = ?");
+        $reponse->execute(array($_POST['email']));
+
+        if(!$reponse->fetch()[0]) // vérifie que l'utilisateur n'existe pas déjà
+        {
+            $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription) VALUE (?, ?, ?, ?, ?, ?, ?, NOW())');
+            $req->execute(array($_POST['nom'],
+                                $_POST['prenom'],
+                                $_POST['age'],
+                                $_POST['sexe'],
+                                $_POST['pays'],
+                                $_POST['email'],
+                                password_hash($_POST['password'], PASSWORD_ARGON2ID))
+            );
+            echo '<p>Inscription réussi, veuillez vous connecter.</p>';
+        }else
+            echo '<p>Email déjà enregistrée.</p>';
     }
 }else
     mis_log();
