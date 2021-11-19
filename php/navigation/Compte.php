@@ -6,16 +6,21 @@ if(isset($_SESSION['email']))
 {
     if(!empty($_POST['conn_email']) && !empty($_POST['conn_password']))
     {
-		$reponse = $bdd->prepare("SELECT motDePasse FROM users WHERE email = ?"); // va chercher le hash de l'utilisateur
+		$reponse = $bdd->prepare("SELECT motDePasse, type_de_compte FROM users WHERE email = ?"); // va chercher le hash de l'utilisateur
 		$reponse->execute(array($_POST['conn_email']));
-		$mdp = $reponse->fetch();
+		$userInfos = $reponse->fetch();
 
-		if(isset($mdp[0])){ // vérifie que l'utilisateur existe
-			if(password_verify($_POST['conn_password'], $mdp[0]))
+		if(isset($userInfos[0])){ // vérifie que l'utilisateur existe
+			if(password_verify($_POST['conn_password'], $userInfos[0]))
 			{
 				$_SESSION['email'] = $_POST['conn_email'];
+                $_SESSION['type_de_compte'] = $userInfos[1];
 
-				echo '<a href="php/logout.php">Déconnexion</p>';
+				echo '
+                <p>Type de compte : ' . $userInfos[1] .
+                '<br>
+                <a href="php/logout.php">Déconnexion</p>
+                ';
 			}else
                 mis_log("Erreur : mot de passe incorrect.");
 		}else

@@ -8,6 +8,8 @@ if(isset($_GET['i']) && !empty($_GET['i']))
 
     if(dirname($path_include) === 'php/navigation')
         require $path_include;
+    else if(dirname($path_include) === 'php/navigation/admin' && isset($_SESSION['type_de_compte']) && $_SESSION['type_de_compte'] === 'Administrator')
+        require $path_include;
     else
         require 'html/accueil.html';
 }
