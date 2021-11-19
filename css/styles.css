@@ -1,123 +1,128 @@
 /* Tag setup */
 
 body {
-    background-image: url("pics/fond.jpg");
-    margin: 0;
-  }
-  
-  h1 {
+  background-image: url('/pics/fond.jpg');
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica;
+  border-left: 2px black;
+  border-bottom: 2px black;
+
+}
+
+h2 {               /* Titre + banière */
+  color: white;
+  text-align: center;
+  margin-left: 625px;
+  padding: 30px;
+}
+
+
+/* Addition */
+
+.module {
+  width: 200px;
+  height: 30px;
+  background: rgb(37, 37, 37);
+  position: relative;
+  left: 600px;
+  margin: 20px;;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.module:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: white;
+  z-index: -1;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+
+/* Fond de la barre de navigation */
+
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(78, 17, 70);
+    font-family: Arial;
     text-align: center;
-    font-family: Helvetica;
-    border-left: 2px black;
-    border-bottom: 2px black;
-  
+    border-radius: 20px;
+    width: 500px;
+    margin-left: 500px;
   }
   
-  h2 {               /* Titre + banière */
+  /* Liens de la barre de navigation */
+  .navbar a {
+    display: inline-block;
+    float: none;
+    font-size: 16px;
     color: white;
     text-align: center;
-    margin-left: 625px;
-    padding: 30px;
+    padding: 14px;
+    text-decoration: none;
   }
   
-  
-  /* Addition */
-  
-  .module {
-    width: 200px;
-    height: 30px;
-    background: rgb(37, 37, 37);
-    position: relative;
-    left: 600px;
-    margin: 20px;;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
   }
   
-  .module:after {
-    content: '';
+  /* liste bouton compte */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Couleur lorsque le curseur est sur un des lien de la barre de navigation */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(108, 29, 110);
+  }
+  
+  /* Contenue de la liste */
+  .dropdown-content {
+    display: none;
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: white;
-    z-index: -1;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
   }
   
+  /* Liens dans la liste */
+  .dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
   
-  /* Fond de la barre de navigation */
+  /* Couleurs de fond lorsque le curseur est sur le lien */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
   
-  
-  .navbar {
-      overflow: hidden;
-      background-color: rgb(78, 17, 70);
-      font-family: Arial;
-    }
-    
-    /* Liens de la barre de navigation */
-    .navbar a {
-      float: left;
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    
-    /* The dropdown container */
-    .dropdown {
-      float: left;
-      overflow: hidden;
-    }
-    
-    /* liste bouton compte */
-    .dropdown .dropbtn {
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit; /* Important for vertical align on mobile phones */
-      margin: 0; /* Important for vertical align on mobile phones */
-    }
-    
-    /* Couleur lorsque le curseur est sur un des lien de la barre de navigation */
-    .navbar a:hover, .dropdown:hover .dropbtn {
-      background-color: rgb(108, 29, 110);
-    }
-    
-    /* Contenue de la liste */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    
-    /* Liens dans la liste */
-    .dropdown-content a {
-      float: none;
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
-    
-    /* Couleurs de fond lorsque le curseur est sur le lien */
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
-    
-    /* Affiche la liste lorsque le curseur est sur le bouton */
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+  /* Affiche la liste lorsque le curseur est sur le bouton */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
