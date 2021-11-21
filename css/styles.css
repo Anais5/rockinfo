@@ -1,19 +1,21 @@
 /* Tag setup */
 
 body {
+  text-align: center;
   background-image: url('/pics/fond.jpg');
   margin: 0;
 }
 
 h1 {
   text-align: center;
-  font-family: Helvetica;
+  font-family: Arial;
   border-left: 2px black;
   border-bottom: 2px black;
 
 }
 
 h2 {               /* Titre + banière */
+  font-family: Arial;
   color: white;
   text-align: center;
   margin-left: 625px;
