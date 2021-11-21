@@ -5,7 +5,7 @@
     <a href="?i=Event">Futurs événements</a>
     <a href="?i=Compte">Compte</a>
     <?php
-    if(isset($_SESSION['type_de_compte']) && type_de_compte === 'Administrator')
+    if(isset($_SESSION['type_de_compte']) && $_SESSION['type_de_compte'] === 'Administrator')
         echo '<a href="?i=admin/admin">Administration</a>';
     ?>
 </nav>
