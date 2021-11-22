@@ -5,7 +5,22 @@
     <a href="?i=Event">Futurs événements</a>
     <a href="?i=Compte">Compte</a>
     <?php
-    if(isset($_SESSION['type_de_compte']) && $_SESSION['type_de_compte'] === 'Administrator')
-        echo '<a href="?i=admin/admin">Administration</a>';
+    if(isset($_SESSION['type_de_compte']))
+    {
+        switch($_SESSION)
+        {
+            case 'Administrator':
+                echo '
+                    <a href="?i=admin/admin">Administration</a>
+                    <a href="?i=">
+                    ';
+                break;
+            case 'Redactor':
+                echo '<a href="?i=">';
+                break;
+            default:
+                break;
+        }
+    }
     ?>
 </nav>
