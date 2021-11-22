@@ -58,9 +58,9 @@ function mis_log($msg = "")
         <span class="switch-handle"></span> 
     </label>
     ';
-
+    echo '<div class="cadre">';
     require 'html/connexion.html';
     require 'html/inscription.html';
-
+    echo'</div>';
     echo $msg;
 }
