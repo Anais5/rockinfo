@@ -1,4 +1,4 @@
-.cadreCo {
+.cadre {
     display: inline-block;
     font-family: Arial;
     border: 2px solid rgba(55, 5, 56, 0.5);
@@ -7,22 +7,10 @@
     background-color: rgba(108, 29, 110, .5);
 }
 
-.cadreCo label {
+.cadre label {
     color: white;
 }
 
-.cadreIn  {
-    display: inline-block;
-    font-family: Arial;
-    border: 2px solid rgba(55, 5, 56, 0.5);
-    border-radius: 10px;
-    padding: 5px 30px;
-    background-color: rgba(108, 29, 110, .5);
-}
-
-.cadreIn label {
-    color: white;
-}
 
 input {
     border-radius: 10px;
