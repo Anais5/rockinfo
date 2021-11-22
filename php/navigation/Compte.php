@@ -57,10 +57,11 @@ function mis_log($msg = "")
         <span class="switch-label" data-on="Connexion" data-off="Inscription"></span> 
         <span class="switch-handle"></span> 
     </label>
-    ';
-    echo '<div class="cadre">';
-    require 'html/connexion.html';
-    require 'html/inscription.html';
-    echo'</div>';
-    echo $msg;
+    
+    <div class="cadre">';
+
+    require 'html/navigation/compte/connexion.html';
+    require 'html/navigation/compte/inscription.html';
+
+    echo '</div>' . $msg;
 }

@@ -7,16 +7,16 @@
     <?php
     if(isset($_SESSION['type_de_compte']))
     {
-        switch($_SESSION)
+        switch($_SESSION['type_de_compte'])
         {
             case 'Administrator':
                 echo '
                     <a href="?i=admin/admin">Administration</a>
-                    <a href="?i=">
+                    <a href="?i=rédaction/createArticle">Rédaction</a>
                     ';
                 break;
             case 'Redactor':
-                echo '<a href="?i=">';
+                echo '<a href="?i=rédaction/createArticle">Rédaction</a>';
                 break;
             default:
                 break;
