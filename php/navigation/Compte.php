@@ -1,21 +1,22 @@
 <?php
 if(isset($_SESSION['email']))
 {
-    echo '<a href="php/logout.php">Déconnexion</p>';
+    echo '<a href="logout.php">Déconnexion</p>';
 }else if(isset($_POST['conn_email'], $_POST['conn_password']))
 {
     if(!empty($_POST['conn_email']) && !empty($_POST['conn_password']))
     {
-		$reponse = $bdd->prepare("SELECT motDePasse FROM users WHERE email = ?"); // va chercher le hash de l'utilisateur
+		$reponse = $bdd->prepare("SELECT motDePasse, type_de_compte FROM users WHERE email = ?"); // va chercher le hash de l'utilisateur
 		$reponse->execute(array($_POST['conn_email']));
-		$mdp = $reponse->fetch();
+		$userInfos = $reponse->fetch();
 
-		if(isset($mdp[0])){ // vérifie que l'utilisateur existe
-			if(password_verify($_POST['conn_password'], $mdp[0]))
+		if(isset($userInfos[0])){ // vérifie que l'utilisateur existe
+			if(password_verify($_POST['conn_password'], $userInfos[0]))
 			{
 				$_SESSION['email'] = $_POST['conn_email'];
+                $_SESSION['type_de_compte'] = $userInfos[1];
 
-				echo '<a href="php/logout.php">Déconnexion</p>';
+				header('location: index.php?i=Compte');
 			}else
                 mis_log("Erreur : mot de passe incorrect.");
 		}else
@@ -30,7 +31,7 @@ if(isset($_SESSION['email']))
 
         if(!$reponse->fetch()[0]) // vérifie que l'utilisateur n'existe pas déjà
         {
-            $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription) VALUE (?, ?, ?, ?, ?, ?, ?, NOW())');
+            $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription, type_de_compte) VALUE (?, ?, ?, ?, ?, ?, ?, NOW(), \'User\')');
             $req->execute(array($_POST['nom'],
                                 $_POST['prenom'],
                                 $_POST['age'],
