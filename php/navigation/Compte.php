@@ -29,7 +29,7 @@ if(isset($_SESSION['email']))
         $reponse = $bdd->prepare("SELECT email FROM users WHERE email = ?");
         $reponse->execute(array($_POST['email']));
 
-        if(!$reponse->fetch()[0]) // vérifie que l'utilisateur n'existe pas déjà
+        if(!isset($reponse->fetch()[0])) // vérifie que l'utilisateur n'existe pas déjà
         {
             $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription, type_de_compte) VALUE (?, ?, ?, ?, ?, ?, ?, NOW(), \'User\')');
             $req->execute(array($_POST['nom'],
