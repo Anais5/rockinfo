@@ -1,6 +1,15 @@
 <?php
 //Edite infos
-$reponse = $bdd->prepare("SELECT id, nom, prenom, email, age, sexe, pays, date_inscription, type_de_compte FROM users WHERE email = ?"); // va chercher les infos de l'utilisateur
+
+if(isset($_POST['del']) && !empty($_POST['del']))
+{
+    $reponse = $bdd->prepare("DELETE FROM users WHERE id = ?");
+    $reponse->execute(array($_POST['del']));
+
+    echo '<p>Utilisateur supprimé.</p>';
+}
+
+$reponse = $bdd->prepare("SELECT id, nom, prenom, email, age, sexe, pays, date_inscription, type_de_compte FROM users"); // va chercher les infos de utilisateur
 $reponse->execute(array($_SESSION['email']));
 
 require 'html/admin/manageUsers_header.html';
@@ -15,7 +24,17 @@ while($userInfos = $reponse->fetch()){
             <td>' . $userInfos['pays'] . '<img src="pics/edit.png" onclick=edit(this.parentElement) width=25></td>
             <td>' . $userInfos['date_inscription'] . '</td>
             <td>' . $userInfos['type_de_compte'] . '<img src="pics/edit.png" onclick=edit(this.parentElement) width=25></td>
-            <td>X</td>
+            <td>';
+    
+        if($_SESSION['email'] !== $userInfos['email'])
+        {
+            echo '<form action="?i=admin/manageUsers" method=POST>
+                        <input name="del" type="hidden" value=' . $userInfos['id'] . '>
+                        <input type="submit" value="X">
+                    </form>';
+        }
+                
+    echo '</td>
             <tr>';
 }
 
