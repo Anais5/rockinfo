@@ -18,5 +18,7 @@ if(isset($_POST['titre'], $_POST['article']))
         echo 'Article "' . $_POST['titre'] . ' " ajouté.';
     }
 }
-
-require 'html/rédaction/createArticle.html';?>
+echo '<div class="cadreArticle">';
+require 'html/rédaction/createArticle.html';
+echo '</div'
+?>
