@@ -3,7 +3,7 @@
 
 if(isset($_POST['del']) && !empty($_POST['del']))
 {
-    $reponse = $bdd->prepare("DELETE FROM users WHERE id = ?");
+    $reponse = $bdd->prepare("DELETE FROM users WHERE email = ?");
     $reponse->execute(array($_POST['del']));
 
     echo '<p>Utilisateur supprimé.</p>';
@@ -29,7 +29,7 @@ while($userInfos = $reponse->fetch()){
         if($_SESSION['email'] !== $userInfos['email'])
         {
             echo '<form action="?i=admin/manageUsers" method=POST>
-                        <input name="del" type="hidden" value=' . $userInfos['id'] . '>
+                        <input name="del" type="hidden" value=' . $userInfos['email'] . '>
                         <input type="submit" value="X">
                     </form>';
         }
