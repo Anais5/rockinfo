@@ -7,5 +7,13 @@ CREATE TABLE users ( -- représente les infos d'un utilisateur
     pays VARCHAR(43) NOT NULL,
     email VARCHAR(50) NOT NULL,
     motDePasse CHAR(97) NOT NULL,
-    date_inscription DATETIME NOT NULL
+    date_inscription DATETIME NOT NULL,
+    type_de_compte ENUM('Administrator', 'Redactor', 'Musician', 'User') NOT NULL
+);
+
+CREATE TABLE articles (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    titre VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    date_parution DATETIME NOT NULL
 );
