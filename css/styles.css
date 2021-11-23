@@ -30,8 +30,8 @@ h2 {               /* Titre + banière */
   height: 30px;
   background: rgb(37, 37, 37);
   position: relative;
-  left: 600px;
-  margin: 20px;;
+  margin-right: auto;
+  margin-left: auto;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -62,7 +62,8 @@ h2 {               /* Titre + banière */
     text-align: center;
     border-radius: 20px;
     width: 500px;
-    margin-left: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* Liens de la barre de navigation */
@@ -127,4 +128,20 @@ h2 {               /* Titre + banière */
   /* Affiche la liste lorsque le curseur est sur le bouton */
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  /* Carré pour afficher les evenements à venir */
+  .carre {
+    height: 20px;
+    width: 20px;
+    background-color: #ddd;
+  }
+  .post_gauche {
+    margin-left: 20%;
+    margin-right: 80%;
+  }
+
+  .post_droite {
+    margin-right: 20%;
+    margin-left: 80%;
   }
