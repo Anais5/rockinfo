@@ -20,5 +20,5 @@ if(isset($_POST['titre'], $_POST['article']))
 }
 echo '<div class="cadreArticle">';
 require 'html/rédaction/createArticle.html';
-echo '</div'
+echo '</div>';
 ?>
