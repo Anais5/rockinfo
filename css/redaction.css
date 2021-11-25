@@ -3,7 +3,23 @@
   margin-bottom: 2%;
 }
 
-#article{
-  width: 50%;
-  height: 500px;
+#article {
+  width: 95%;
+  height: 400px;
+}
+
+.cadreArticle {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: inline-block;
+  font-family: Arial;
+  border: 2px solid rgba(55, 5, 56, 0.5);
+  border-radius: 10px;
+  padding: 5px 30px;
+  background-color: rgba(108, 29, 110, .5);
+  width: 60%;
+}
+
+label {
+  vertical-align: top;
 }
