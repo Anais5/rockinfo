@@ -1,6 +1,5 @@
-<?php 
-
-if(isset($_POST['titre'], $_POST['article']))
+<?php
+if(isset($_POST['titre'], $_POST['article'], $_POST['notif']))
 {
     $reponse = $bdd->prepare("SELECT titre FROM articles WHERE titre = ?");
     $reponse->execute(array($_POST['titre']));
@@ -15,9 +14,18 @@ if(isset($_POST['titre'], $_POST['article']))
         ));
 
         file_put_contents('html/rédaction/articles/' . $_POST['titre'] . '.html', $_POST['article']);
+
+        if(!empty($_POST['notif']))
+        {
+            foreach ($bdd->query("SELECT email FROM users") as $email) {
+                mail($email[0], "Un nouvel article vous attend : " . $_POST['titre'], $_POST['article'], "From: newsletter@rockinfo.duckdns.org");
+            }
+        }
+
         echo 'Article "' . $_POST['titre'] . ' " ajouté.';
     }
 }
+
 echo '<div class="cadreArticle">';
 require 'html/rédaction/createArticle.html';
 echo '</div>';

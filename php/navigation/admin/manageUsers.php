@@ -1,6 +1,6 @@
 <?php
 //Edite infos
-
+ini_set('display_errors', 1);
 if(isset($_POST['del']) && !empty($_POST['del']))
 {
     $reponse = $bdd->prepare("DELETE FROM users WHERE email = ?");
@@ -9,8 +9,8 @@ if(isset($_POST['del']) && !empty($_POST['del']))
     echo '<p>Utilisateur supprimé.</p>';
 }
 
-$reponse = $bdd->prepare("SELECT id, nom, prenom, email, age, sexe, pays, date_inscription, type_de_compte FROM users"); // va chercher les infos de utilisateur
-$reponse->execute(array($_SESSION['email']));
+//Edit
+$reponse = $bdd->query("SELECT * FROM users"); // va chercher les infos de utilisateur
 
 require 'html/admin/manageUsers_header.html';
 
@@ -24,6 +24,7 @@ while($userInfos = $reponse->fetch()){
             <td>' . $userInfos['pays'] . '<img src="pics/edit.png" onclick=edit(this.parentElement) width=25></td>
             <td>' . $userInfos['date_inscription'] . '</td>
             <td>' . $userInfos['type_de_compte'] . '<img src="pics/edit.png" onclick=edit(this.parentElement) width=25></td>
+            <td>' . $userInfos['newsletter'] . '<img src="pics/edit.png" onclick=edit(this.parentElement) width=25></td>
             <td>';
     
         if($_SESSION['email'] !== $userInfos['email'])

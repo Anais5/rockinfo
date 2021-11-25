@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 if(isset($_SESSION['email']))
 {
     echo '<a href="logout.php">Déconnexion</p>';
@@ -31,13 +32,14 @@ if(isset($_SESSION['email']))
 
         if(!isset($reponse->fetch()[0])) // vérifie que l'utilisateur n'existe pas déjà
         {
-            $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, motDePasse, date_inscription, type_de_compte) VALUE (?, ?, ?, ?, ?, ?, ?, NOW(), \'User\')');
+            $req = $bdd->prepare('INSERT INTO users(nom, prenom, age, sexe, pays, email, newsletter, motDePasse, date_inscription, type_de_compte) VALUE (?, ?, ?, ?, ?, ?, ?, ?, NOW(), \'User\')');
             $req->execute(array($_POST['nom'],
                                 $_POST['prenom'],
                                 $_POST['age'],
                                 $_POST['sexe'],
                                 $_POST['pays'],
                                 $_POST['email'],
+                                !empty($_POST['newsletter']) ? 1 : 0,
                                 password_hash($_POST['password'], PASSWORD_ARGON2ID))
             );
             echo '<p>Inscription réussi, veuillez vous connecter.</p>';
