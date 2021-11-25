@@ -5,6 +5,7 @@ CREATE TABLE users ( -- représente les infos d'un utilisateur
     sexe ENUM('H', 'F') NOT NULL,
     pays VARCHAR(43) NOT NULL,
     email VARCHAR(50) PRIMARY KEY NOT NULL,
+    newsletter BOOLEAN NOT NULL,
     motDePasse CHAR(97) NOT NULL,
     date_inscription DATETIME NOT NULL,
     type_de_compte ENUM('Administrator', 'Redactor', 'Musician', 'User') NOT NULL
