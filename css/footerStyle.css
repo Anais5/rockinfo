@@ -1,0 +1,29 @@
+.footer {
+  position: fixed;
+  left: 0;
+  top: 75%;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(37, 37, 37);
+  color: white;
+  text-align: center;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow:0 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  .align {
+      display: flex;
+      margin-left: 10%;
+  }
+
+  .under {
+      vertical-align: bottom;
+  }
