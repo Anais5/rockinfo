@@ -15,7 +15,7 @@ if(isset($_POST['titre'], $_POST['article']))
                             $_SESSION['email']
         ));
 
-        file_put_contents('html/rédaction/articles/' . $_POST['titre'] . '.html', $_POST['article']);
+        file_put_contents('html/rédaction/articles/' . $_POST['titre'] . '.html', '<article>' . $_POST['article'] . '<article>');
 
         if(isset($_POST['notif']))
         {

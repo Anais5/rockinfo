@@ -8,7 +8,7 @@ if(isset($_GET['article_show']))
     $reponse = $bdd->prepare("SELECT titre, email, date_parution FROM articles");
     $reponse->execute();
 
-    require 'html/rédaction/Events.html';
+    require 'html/rédaction/articles.html';
 
     while($article = $reponse->fetch())
     {
