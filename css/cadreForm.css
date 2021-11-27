@@ -20,3 +20,24 @@ input {
 select {
     border-radius: 10px;
 }
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.cadreImg {
+    border: 30px none;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    background-color: rgba(161, 146, 146, 0.5);
+}
