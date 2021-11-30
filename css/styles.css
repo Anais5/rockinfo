@@ -131,12 +131,24 @@ h2 {               /* Titre + banière */
   }
 
   /* Carré pour afficher les evenements à venir */
-  .carre {
-    height: 20px;
-    width: 20px;
-    background-color: #ddd;
+  .conteneur {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 5% 5% 5% 5%;
   }
-  .post_gauche {
+
+  .box {
+    background-color: rgb(78, 17, 70);
+    margin: 1% 1% 1% 1%;
+    width: auto;
+    height: auto;
+    min-width: 20%;
+    min-height: 80%;
+
+    border-radius: 10px;
+  }
+  /*.post_gauche {
     margin-left: 20%;
     margin-right: 80%;
   }
@@ -144,4 +156,4 @@ h2 {               /* Titre + banière */
   .post_droite {
     margin-right: 20%;
     margin-left: 80%;
-  }
+  }*/
