@@ -1,18 +1,21 @@
 <form method="POST" id="inscription" hidden>
-        <label for="nom">Nom : </label>
-        <input id="nom" name="nom" required>
+    <label for="nom">Nom : </label>
+    <input id="nom" name="nom" required>
 
-        <label for="prenom">Prénom : </label>
-        <input id="prenom" name="prenom" required>
+    <label for="prenom">Prénom : </label>
+    <input id="prenom" name="prenom" required>
 
-        <label for="age">Age : </label>
-        <input type="number" id="age" name="age" min="0" required>
+    <label for="age">Age : </label>
+    <input type="number" id="age" name="age" min="0" max="123" required>
 
-        <label for="email">Email : </label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">Email : </label>
+    <input type="email" id="email" name="email" required>
 
     <label for="password">Mot de passe : </label>
     <input type="password" id="password" name="password" required>
+
+    <label for="newsletter">Newsletter</label>
+    <input type="checkbox" id="newsletter" name="newsletter" value="1">
 
     <fieldset>
         <legend>Sexe : </legend>
@@ -23,8 +26,7 @@
     </fieldset>
 
     <label for="pays">Pays : </label>
-    <input type="text" id="pays" name="pays" required list="pays_list" placeholder=" Search...">
-    <datalist id="pays_list" required>
+    <select id="pays" name="pays" required>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Åland Islands">Åland Islands</option>
         <option value="Albania">Albania</option>
@@ -269,7 +271,7 @@
         <option value="Yemen">Yemen</option>
         <option value="Zambia">Zambia</option>
         <option value="Zimbabwe">Zimbabwe</option>
-    </datalist>
+    </select>
 
     <input type="submit">
 </form>

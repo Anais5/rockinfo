@@ -22,6 +22,12 @@ h2 {               /* Titre + banière */
   padding: 30px;
 }
 
+table {
+  padding-top: 10px;
+  margin-left: auto ;
+  margin-right: auto;
+}
+
 
 /* Addition */
 

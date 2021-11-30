@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 if(isset($_GET['article_show']))
 {
     echo '<h1>' . $_GET['article_show'] . '</h1>';
@@ -13,8 +12,8 @@ if(isset($_GET['article_show']))
 
     while($article = $reponse->fetch())
     {
-        echo '<tr class="box">
-                <td><a href="?i=Event&article_show=' . $article['titre'] . '">' . $article['titre'] . '</a></td>
+        echo '<tr>
+                <td><a href="?article_show=' . $article['titre'] . '">' . $article['titre'] . '</a></td>
                 <td>Rédacteur : ' . $article['email'] . '</td>
                 <td>Date de parution : ' . $article['date_parution'] . '</td>
             <tr>';
@@ -22,6 +21,4 @@ if(isset($_GET['article_show']))
 
     echo '</tbody></table>';
 }
-
-
 ?>

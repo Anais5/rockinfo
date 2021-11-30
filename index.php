@@ -12,19 +12,19 @@ if(isset($_GET['i']) && !empty($_GET['i']))
             require $path_include;
             break;
         case 'php/navigation/admin':
-            if($_SESSION['type_de_compte'] === 'Administrator')
+            if(isset($_SESSION['type_de_compte']) && $_SESSION['type_de_compte'] === 'Administrator')
                 require $path_include;
             break;
         case 'php/navigation/rédaction':
-            if($_SESSION['type_de_compte'] === 'Redactor' || $_SESSION['type_de_compte'] === 'Administrator')
+            if(isset($_SESSION['type_de_compte']) && ($_SESSION['type_de_compte'] === 'Redactor' || $_SESSION['type_de_compte'] === 'Administrator'))
                 require $path_include;
             break;
         default:
-            require 'html/accueil.html';
+            require 'php/navigation/accueil.php';
             break;
     }
 }
 else
-    require 'html/accueil.html';
+    require 'php/navigation/accueil.php';
 
 require 'html/footer.html';
