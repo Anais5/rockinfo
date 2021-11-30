@@ -1,9 +1,34 @@
 <?php
-ini_set('display_errors', 1);
-if(isset($_SESSION['email']))
-{
-    echo '<a href="logout.php">Déconnexion</p>';
-}else if(isset($_POST['conn_email'], $_POST['conn_password']))
+if(isset($_SESSION['email'])){
+    require 'html/navigation/compte/compte.html';
+
+    if(isset($_POST['new_email'])){
+        if(!empty($_POST['new_email']))
+        {
+            $reponse = $bdd->prepare("SELECT email FROM users WHERE email = ?");
+            $reponse->execute(array($_POST['new_email']));
+        
+            if(!isset($reponse->fetch()[0])) // vérifie que l'email n'est pas déjà pris
+            {
+                $req = $bdd->prepare('UPDATE users SET email = ? WHERE email = ?');
+                $req->execute(array($_POST['new_email'],
+                                    $_SESSION['email']));
+                echo '<p>Email modifié.</p>';
+            }else
+                echo '<p>Erreur : Email déjà enregistrée.</p>';
+        }
+    }if(isset($_POST['new_password']))
+    {
+        if(!empty($_POST['new_password']))
+        {
+            $req = $bdd->prepare('UPDATE users SET motDePasse = ? WHERE email = ?');
+            $req->execute(array(password_hash($_POST['new_password'], PASSWORD_ARGON2ID),
+                                            $_SESSION['email']));
+            echo '<p>Mot de passe modifié.</p>';
+        }
+    }
+}
+else if(isset($_POST['conn_email'], $_POST['conn_password']))
 {
     if(!empty($_POST['conn_email']) && !empty($_POST['conn_password']))
     {
@@ -44,7 +69,7 @@ if(isset($_SESSION['email']))
             );
             echo '<p>Inscription réussi, veuillez vous connecter.</p>';
         }else
-            echo '<p>Email déjà enregistrée.</p>';
+            echo '<p>Erreur : Email déjà enregistrée.</p>';
     }
 }else
     mis_log();
