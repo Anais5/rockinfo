@@ -9,6 +9,7 @@ if(isset($_GET['article_show']))
     $reponse->execute();
 
     require 'html/rédaction/articles.html';
+    
 
     while($article = $reponse->fetch())
     {
