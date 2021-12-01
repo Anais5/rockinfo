@@ -1,5 +1,9 @@
 /* Tag setup */
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-image: url('/pics/fond_rock.jpg');
   /*background-size: cover;*/
@@ -150,7 +154,6 @@ table {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgba(255, 255, 255, 0.5);
-    margin: 5% 5% 5% 5%;
   }
 
   .box {
@@ -172,3 +175,8 @@ table {
     margin-right: 20%;
     margin-left: 80%;
   }*/
+
+  .centerTable {
+    margin-left: auto;
+    margin-right: auto;
+  }
