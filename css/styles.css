@@ -1,8 +1,8 @@
 /* Tag setup */
 
 body {
-  text-align: center;
-  background-image: url('/pics/fond.jpg');
+  background-image: url('/pics/fond_rock.jpg');
+  /*background-size: cover;*/
   margin: 0;
 }
 
@@ -29,12 +29,20 @@ table {
 }
 
 
-/* Addition */
+.centrer {
+  text-align: center;
+}
+
+.logo {
+  max-width: 50%;
+  width: 300px;
+	height: auto;
+  padding: 2% 2% 2% 2%;
+  border-radius: 30%;
+}
+/* Ancienne banière
 
 .module {
-  width: 200px;
-  height: 30px;
-  background: rgb(37, 37, 37);
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -55,7 +63,7 @@ table {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
-}
+}*/
 
 
 /* Fond de la barre de navigation */
@@ -63,11 +71,12 @@ table {
 
 .navbar {
     overflow: hidden;
-    background-color: rgb(78, 17, 70);
+    background-color: #C87538;
     font-family: Arial;
     text-align: center;
     border-radius: 20px;
-    width: 500px;
+    width: auto;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -103,7 +112,7 @@ table {
   
   /* Couleur lorsque le curseur est sur un des lien de la barre de navigation */
   .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: rgb(108, 29, 110);
+    background-color: #E8AB50;
   }
   
   /* Contenue de la liste */
