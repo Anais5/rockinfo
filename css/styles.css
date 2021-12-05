@@ -6,8 +6,13 @@ html {
 
 body {
   background-image: url('/pics/fond_rock.jpg');
-  /*background-size: cover;*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% auto;
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;;
 }
 
 h1 {
