@@ -6,7 +6,7 @@ html {
 
 body {
   background-image: url('/pics/fond_rock.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   background-size: 100% auto;
   margin: 0;
@@ -170,23 +170,29 @@ button {
     border-radius: 30%;
   }
 
-  .containeur {
+  .containeur { /* sert de fond */
     background-color: rgba(255, 255, 255, 0.5);
+    margin: 2% 2% 2% 2%;
   }
 
-  .conteneur {
+  .conteneur { /* contient un "tableau" de boites (on peut y ajouter un titre) */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, auto);
     margin: 5% 5% 5% 5%;
+
+    border-radius: 10px;
   }
 
-  .box_store{
+  #titre { /* titre conteneur */
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  .box{
     background-color: rgb(78, 17, 70);
     margin: 1% 1% 1% 1%;
-    width: auto;
-    height: auto;
-    min-width: 20%;
-    min-height: 80%;
 
     border-radius: 10px;
     display: grid;
@@ -194,39 +200,42 @@ button {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, auto);
     grid-template-areas:
-      "titre titre"
+      "sous_titre sous_titre"
       "img descrip"
       "img info"
-      "boutton boutton"
-
+      "bouton bouton"
   }
 
   #img {
+    text-align: center;
     grid-area: img;
 
   }
 
-  .titre {
-    grid-area: titre;
+  #sous_titre{
+    text-align: center;
+    grid-area: sous_titre;
   }
 
-  .descrip {
+  #descrip {
     grid-area: descrip;
   }
 
-  .info {
+  #info {
     grid-area: info;
   }
 
-  .boutton {
-    grid-area: boutton;
+  #bouton {
+    text-align: center;
+    grid-area: bouton;
   }
 
-  @media only screen and (max-width: 550px) {
+  @media only screen and (max-width: 500px) {
     .conteneur {
       display: grid;
-      grid-template-columns: 1fr;
       margin: 5% 5% 5% 5%;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto, auto);
     }
   }
   /*.post_gauche {
