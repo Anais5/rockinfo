@@ -85,7 +85,7 @@ function mis_log($msg = "")
         <span class="switch-handle"></span> 
     </label>
     
-    <div class="cadre">';
+    <div style="margin-left: auto; margin-right: auto;" class="cadre">';
 
     require 'html/navigation/compte/connexion.html';
     require 'html/navigation/compte/inscription.html';
