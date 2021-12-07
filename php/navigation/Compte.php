@@ -79,7 +79,7 @@ function mis_log($msg = "")
     echo '
     <script src="js/interface.js"></script>
 
-    <label class="switch">
+    <label style="margin-left: auto; margin-right: auto; margin-top: 2%;" class="switch">
         <input class="switch-input" type="checkbox" id="btn_switch_log" onclick="switch_log()"/>
         <span class="switch-label" data-on="Connexion" data-off="Inscription"></span> 
         <span class="switch-handle"></span> 
