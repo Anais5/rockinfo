@@ -170,14 +170,17 @@ button {
     border-radius: 30%;
   }
 
+  .containeur {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
   .conteneur {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgba(255, 255, 255, 0.5);
     margin: 5% 5% 5% 5%;
   }
 
-  .box {
+  .box_store{
     background-color: rgb(78, 17, 70);
     margin: 1% 1% 1% 1%;
     width: auto;
@@ -190,32 +193,41 @@ button {
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "titre titre"
+      "img descrip"
+      "img info"
+      "boutton boutton"
+
   }
 
-  .img {
-    grid-column: 1;
-    grid-row: 2/3;
+  #img {
+    grid-area: img;
 
   }
 
   .titre {
-    grid-column: 1/2;
-    grid-row: 1;
+    grid-area: titre;
   }
 
   .descrip {
-    grid-column: 2;
-    grid-row: 2;
+    grid-area: descrip;
   }
 
   .info {
-    grid-column: 2;
-    grid-row: 3;
+    grid-area: info;
   }
 
   .boutton {
-    grid-column: 1/2;
-    grid-row: 4;
+    grid-area: boutton;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .conteneur {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 5% 5% 5% 5%;
+    }
   }
   /*.post_gauche {
     margin-left: 20%;
