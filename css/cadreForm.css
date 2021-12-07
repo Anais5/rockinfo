@@ -32,7 +32,7 @@ select {
   .row::after {
     content: "";
     clear: both;
-    display: table;
+    display: grid;
   }
 
 .cadreImg {
