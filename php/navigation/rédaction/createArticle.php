@@ -1,5 +1,5 @@
 <?php
-echo '<div class="cadreArticle">';
+echo '<div style="margin-left: auto; margin-right: auto;" class="cadreArticle">';
 
 if(isset($_POST['titre'], $_POST['article']))
 {
