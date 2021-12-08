@@ -184,6 +184,15 @@ button {
     border-radius: 10px;
   }
 
+  .conteneur2 { /* contient un "tableau" de boites (on peut y ajouter un titre) */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, auto);
+    margin: 5% 5% 5% 5%;
+
+    border-radius: 10px;
+  }
+
   #titre { /* titre conteneur */
     grid-column: 2;
     grid-row: 1;
@@ -191,6 +200,22 @@ button {
   }
 
   .box{
+    background-color: rgb(78, 17, 70);
+    margin: 1% 1% 1% 1%;
+
+    border-radius: 10px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "sous_titre sous_titre"
+      "img descrip"
+      "img info"
+      "bouton bouton"
+  }
+
+  .boite_dialogue {
     background-color: rgb(78, 17, 70);
     margin: 1% 1% 1% 1%;
 

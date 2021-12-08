@@ -13,13 +13,13 @@ if(isset($_GET['article_show']))
 
     while($article = $reponse->fetch())
     {
-        echo '<tr>
-                <td><a href="?article_show=' . $article['titre'] . '">' . $article['titre'] . '</a></td>
-                <td>Rédacteur : ' . $article['email'] . '</td>
-                <td>Date de parution : ' . $article['date_parution'] . '</td>
-            <tr>';
+        echo '<div class="box">
+                <div id="titre"><a href="?article_show=' . $article['titre'] . '">' . $article['titre'] . '</a></div>
+                <div id="info">Rédacteur : ' . $article['email'] . '</div>
+                <div id="descrip">Date de parution : ' . $article['date_parution'] . '</div>
+            <div class="box>';
     }
 
-    echo '</tbody></table>';
+    echo '</conteneur>';
 }
 ?>
