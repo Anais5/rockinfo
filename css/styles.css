@@ -6,7 +6,7 @@ html {
 
 body {
   background-image: url('/pics/fond_rock.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   background-size: 100% auto;
   margin: 0;
@@ -157,21 +157,111 @@ button {
   }
 
   /* Carré pour afficher les evenements à venir */
-  .conteneur {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: rgba(255, 255, 255, 0.5);
+
+  .centrer {
+    text-align: center;
+  }
+  
+  .logo {
+    max-width: 50%;
+    width: 300px;
+    height: auto;
+    padding: 2% 2% 2% 2%;
+    border-radius: 30%;
   }
 
-  .box {
-    background-color: rgb(78, 17, 70);
-    margin: 1% 1% 1% 1%;
-    width: auto;
-    height: auto;
-    min-width: 20%;
-    min-height: 80%;
+  .containeur { /* sert de fond */
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 2% 2% 2% 2%;
+  }
+
+  .conteneur { /* contient un "tableau" de boites (on peut y ajouter un titre) */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, auto);
+    margin: 5% 5% 5% 5%;
 
     border-radius: 10px;
+  }
+
+  .conteneur2 { /* contient un "tableau" de boites (on peut y ajouter un titre) */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, auto);
+    margin: 5% 5% 5% 5%;
+
+    border-radius: 10px;
+  }
+
+  #titre { /* titre conteneur */
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  .box{
+    background-color: rgb(78, 17, 70);
+    margin: 1% 1% 1% 1%;
+
+    border-radius: 10px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "sous_titre sous_titre"
+      "img descrip"
+      "img info"
+      "bouton bouton"
+  }
+
+  .boite_dialogue {
+    background-color: rgb(78, 17, 70);
+    margin: 1% 1% 1% 1%;
+
+    border-radius: 10px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "sous_titre sous_titre"
+      "img descrip"
+      "img info"
+      "bouton bouton"
+  }
+
+  #img {
+    text-align: center;
+    grid-area: img;
+
+  }
+
+  #sous_titre{
+    text-align: center;
+    grid-area: sous_titre;
+  }
+
+  #descrip {
+    grid-area: descrip;
+  }
+
+  #info {
+    grid-area: info;
+  }
+
+  #bouton {
+    text-align: center;
+    grid-area: bouton;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .conteneur {
+      display: grid;
+      margin: 5% 5% 5% 5%;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto, auto);
+    }
   }
   /*.post_gauche {
     margin-left: 20%;
