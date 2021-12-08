@@ -16,7 +16,7 @@ if(isset($_GET['article_show']))
     require 'html/rédaction/articles/' . $_GET['article_show'] . '.html';
 }else
 {
-    $reponse = $bdd->prepare("SELECT titre, email, date_parution FROM articles");
+    $reponse = $bdd->prepare("SELECT titre, email, date_parution FROM articles ORDER BY date_parution DESC");
     $reponse->execute();
 
     require 'html/rédaction/articles.html';
