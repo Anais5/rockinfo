@@ -74,7 +74,7 @@ button {
     display: inline-block;
     float: none;
     font-size: 16px;
-    color: white;
+    color: #e8D9AB;
     text-align: center;
     padding: 14px;
     text-decoration: none;
@@ -232,6 +232,13 @@ button {
     grid-area: img;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: medium;
+    margin: 2% 2% 2% 2%;
+  }
+
+  .affiche{
+    margin: 5% 25% 5% 25%;
+    width: 50%;
+    height: auto;
   }
 
   #p {
@@ -296,6 +303,12 @@ button {
       margin: 5% 5% 5% 5%;
   
       border-radius: 10px;
+    }
+
+    .affiche{
+      margin: 5% 5% 5% 5%;
+      max-width: 90%;
+      height: auto;
     }
   }
 
